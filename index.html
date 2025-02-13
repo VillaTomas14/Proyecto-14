@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página para mi novia</title>
+    <title>Página de Abi</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap">
 </head>
 <body>
     <header>
-        <h1>Página para mi novia</h1>
+        <h1>Página de Abi</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -22,11 +22,26 @@
         <main>
             <h2>Contenido Principal</h2>
             <p>Aquí puedes escribir algo lindo:</p>
-            <p class="editable" contenteditable="true">Escribe tus pensamientos aquí...</p>
+            <p class="editable" contenteditable="true"></p>
         </main>
     </div>
     <footer>
-        <p>&copy; 2025 Página creada con amor</p>
+        <p>&copy; 2025 Página creada con amor para mi Abita</p>
     </footer>
+    <script>
+        // Recuperar el contenido guardado al cargar la página
+        window.onload = function() {
+            const savedContent = localStorage.getItem('editableContent');
+            if (savedContent) {
+                document.querySelector('.editable').innerText = savedContent;
+            }
+        };
+
+        // Guardar el contenido al cambiarlo
+        document.querySelector('.editable').addEventListener('input', function() {
+            localStorage.setItem('editableContent', this.innerText);
+        });
+    </script>
 </body>
 </html>
+
